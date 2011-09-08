@@ -1,0 +1,237 @@
+
+; [Revision History]
+;
+; TopLevel: deMIDulator
+; SubLevel: firmware/PIC/PIC18LF13K50/ASM
+;
+;  * STICKYz *
+;    + ISSUE: MIDI messages are not being serviced quickly enough, reduce adsr ISR processing load
+;    -- not currently a problem but the following are opportunities for performance improvement
+;    -- could push calling midiMessageMapper() to outside of ISR
+;    + VERY IMPORTANT TO REMEMBER THAT OSCILLATOR STATE AND ADSR FUNCTION INDEPENDENTLY
+;    -- OSCILLATOR STATE CONTROLS activeOutputValues WHILE ADSR CONTROLS adsrLimiterRegs
+;    -- Lack of synchronization will cause popping and noise
+;    -- activeNoteTable is modified by ISR, so is VOLATILE!
+;
+;  * In Progress *
+;    + Consolidating code for v1.00 release
+;
+;  * Pending *
+;    + Figure out full port to PIC18LF14K22
+;    + bootloader RX is not functioning properly.  LEDs indicate mode but often trasnsmission will not be received.
+;      requires power-cycling unit then entering bootloader RX until it works.  No indication of any error, it just
+;      doesn't indicate any activity. Seems ok when sending SysEx from USB-MIDI adapter
+;    + Add MIDI channel select feature
+;    + Improve MIDI servicing
+;
+;  * Waived Bugs / Issues *
+;    + when enabling sustain mode with active notes in a wave mode (sine/square) and then switching
+;      to sample, or vice versa, notes are not correct.  This is because sustained oscillators are
+;      not currently updatable
+;
+;
+; DateCode: 20110907
+; Details:
+;
+;  * Changes *
+;    !! GIT COMMIT 238b470191ea3c6d622c38e3fbbbcf705aca4d4f !!
+;    + FEATURE: added partial support for PIC18LF14K22
+;    -- basic MIDI / sound generation functions but buttons are disabled because INT0-2 are on completely different pins than PIC18LF13K50
+;    --- from "http://ww1.microchip.com/downloads/en/DeviceDoc/39630g.pdf"
+;    ---- "The 8-bit PIC microcontroller family is pin-compatible within a given pin count as well as code compatible between the architectures."
+;    ----- bullshit
+;    -- bootloader likely won't work either because 14K22 wants 16-byte write blocks and 13K50 expects 8-byte
+;    + FIXED: holding 3 note chord in Sine mode and playing fast single notes with 4th oscillator, oscillator becomes unresponsive
+;    -- observed that delegatedDeltas contained two copies of same delta value, realized that activeNoteTable is modified by ISR..
+;       so is volatile and can change while the only mainline function to access activeNoteTable[], getActiveNoteDeltas(), is executing.
+;    -- suspect that activeNoteTable[] update during getActiveNoteDeltas() execution was causing duplicate delta value in activeNoteDeltas[]
+;    --- adding "soundGenFlags, activeNoteTableModified" flag (refreshActiveNoteState() sets it, getActiveNoteDeltas() clears it, tests it
+;        once complete and re-executes if set) seems to have fixed it
+;
+;
+; DateCode: 20110906
+; Details:
+;
+;  * Changes *
+;    !! GIT COMMIT 59ad9366b269c43afdc9c7dbfbc291c77d626526 !!
+;    + REFACTOR: removed oscEnabledFlags since delegatedDelta check for == 0 serves same purpose
+;    + BUG FIX: distortion in poly Sine mode, press two keys, release one, there's distortion in remaining note when first releases
+;    -- fixed by removing oscEnabledFlags
+;    -- speculate that oscEnableFlag was being cleared before delegated delta == 0 & even though osc was disabled, oscillator would still
+;       spin every time delegatorBusy flag was set
+;    + BUG FIX: certain Sine notes sustain for too long waiting for == PWM_IDLE_OUTPUT_VALUE. need to change to range
+;    -- added activeOutputValue range check of (PWM_IDLE_OUTPUT_VALUE +/- OSC_TRANSITION_OUTPUT_THRESHOLD) to ungate osc changes
+;    + BUG FIX: poly mode is significantly noisier than mono.  figure out why.  speculate it's the extra processing required
+;    -- mono mode is now as noisy as poly. great job.
+;    + BUG FIX: retriggering notes during release causes popping / hijacking oscillator (releasing or otherwise) causes popping
+;    -- now conditionally "setf	PLUSW0, ACCESS" (FSR0 = adsrLimiterRegs) in oscAdsrTriggerAttack()
+;    --- when releaseRate != 64, attack starts from whatever current adsrLimiterRegs happens to prevent sudden drop in output amplitude
+;    --- when releaseRate == 64, adsrLimiterReg will be set to 0xff at attack
+;    -- popping may still occur if attackTime == 0
+;    -- acceptable solution for addressing other bug: "make reattack on note repress while releasing optional"
+;    + REFACTOR: in serviceADSR(), ported OSC_ADVANCE_ADSR macro to dynamic code to save on Program Memory space
+;    + FEATURE: attack/release disabled in mono mode
+;    + FEATURE: Only retrigger sample on Note On
+;    -- replaced "midiFlags, noteTransition" with "midiFlags, keyPressed". keyPressed flag is set unconditionally by activeNoteTableAdd()
+;    -- audio sample recording now terminates only when new Note On is received
+;    -- sample playback now only retriggers when new Note On is received
+;
+;
+; DateCode: 20110904
+; Details:
+;
+;  * Changes *
+;    !! GIT COMMIT 1657b44278e19b6e4ef0 !!
+;    + FIXED: added 'bcf STATUS, C, ACCESS' before 'rrcf' instructions where it had been missing
+;    -- may fix infrequent pitch corruption bug
+;    + FIXED: changed all 'rlncf' to 'bcf STATUS, C, ACCESS', 'rlcf'
+;    -- '..ncf' does not work the way that I thought.  It rotates value instead of shifting in 0
+;    + FIXED: reduced switch click at start of sample by adding 'recordWaitCountdown' variable
+;    + FIXED: fix dc offset in monophonic mode. mono mode now mixes all oscillators just like poly
+;    + FIXED: PRODH:PRODL registers are unprotected in functions eepromWrite64() and processSoundState()
+;    -- now pushing/popping with softStack
+;    + FIXED: ACCESS variables not correctly addressed as such or vice-versa
+;    + FIXED: output popping on sample record termination
+;    -- After last chunk, ISR sets sampleChunkReady flag and recordOrPlayback to PLAYBACK but...
+;       mainline needed to poll eeprom for ready while the write completes before reading for playback…
+;       otherwise EEPROM read will result in 0xff until write is complete and EEPROM becomes ready
+;    + FIXED: fix sample mode dc offset / make compatible with new amplitude attentuation method (amplitude is totally screwed up)
+;    -- Sample is now using identical mixing as Sine/Square
+;    -- amplifying incoming sample data x2 to compensate for amplitude loss
+;
+; DateCode: 20110827
+; Details:
+;
+;  * Changes *
+;    !! GIT COMMIT e66886965d4cff794270 !!
+;    + FIXED: distortion and clicking in adsr waveforms caused by dc-offset method of amplitude attenuation
+;    -- attenuation now idles at value PWM_IDLE_OUTPUT_VALUE instead of 0
+;
+; DateCode: 20110819
+; Details:
+;
+;  * Changes *
+;    !! GIT COMMIT 5c73733e6b821f25c3c5 !!
+;    + FIXED: Notes are hanging as result of failure to refresh, not dropped data
+;    -- during note hang: activeNoteTable was empty but activeNoteDeltas WAS NOT EMPTY
+;    -- problem was being caused by needRefresh flag being set in ISR during mainling execution of getActiveNoteDeltas
+;    -- fixed by clearing flag immediately after checking in mainline and before call to getActiveNoteDeltas
+;    + Deleted vestigal midiTerminalStringTables.inc from project
+;    + FIXED: midiMessageMapper() entrance pushes FSR0 but exit pops FSR1. Seems to reduce stuck notes!
+;    + FIXED: MIDI messages are not being serviced quickly enough, reduce adsr ISR processing load
+;    -- appears fixed after correcting midiMessageMapper() FSR0/1 push/pop error
+;
+; DateCode: 20110819
+; Details:
+;
+;  * Changes *
+;    !! GIT COMMIT 0db367c4d64ac051f9fe !!
+;    + FIXED: lastApplicationProgramMemoryAddress is hardcoded into bootLoader at time of assembly so writes
+;      would fail.  Fix was to hardcode lastApplicationProgramMemoryAddress to 0x17FE, just short of bootLoader start
+;    !! GIT COMMIT e9907a0f7484f8fafa93 !!
+;    + FIXED: scale MIDI attack and release controller values for better useful range
+;    + FIXED: invert adsr value logic, MIDI controllers are called "Attack Time" and "Release Time"
+;
+;
+; DateCode: 20110818
+; Details:
+;
+;  * Changes *
+;    + ADDED - adsr(-ds) function
+;    + FIXED - second of two concurrent indentical notes now retrigger osc as first notes releases 
+;    + FIXED - adsr breaks sustain, now ignoring sustaining oscillators in adsr advance macro
+;    + WHO CARES - why is monophonic mode unaffected? set it to be permanently unaffected
+;    + FIXED
+;      - second of two concurrent indentical notes doesn't retrigger 2ND OSC!! as first notes releases
+;      - adsr breaks polyphony (specifically, switching from delegator looking for 0x00 to looking for non-locked)
+;      SOLUTION
+;      - created spearate andLockedFlags variable and rename lockFlags to ddLockedFlags.  This fixed a lot of problems.
+;        Was moronically using a single lockedFlags variable to flag currently assigned oscillators and activeNoteDeltas,
+;        and recklessly just setting and reading flags from this single variable for two separate purposes
+;
+;
+; DateCode: 20110817
+; Details:
+;
+;   * Changes *
+;     + changed modulation function
+;     -- defined specific modulationBlendTable in "waveTables.inc" to make effect predictable
+;     -- modulation value is no longer multiplied before offsetting table addresses,
+;        making for a much smoother transition into effect
+;     -- lower octave notes now sound amazingly fat
+;     + changed audio output mixing scheme\
+;     -- audio through is now /2
+;     -- sine and square are now /8 before output, sample is /2 before output
+;     -- sound balance is a bit better and now there's no volume drop for poly samples
+;
+; DateCode: > 20110128
+; Details:
+;         * Changes *
+;
+;         + Changed audio sample record to only function in SAMPLE mode
+;         -- Info: Button still works for VOICE_THROUGH in SINE and SQUARE modes
+;         + Cleaned up MIDI frontline rx routine
+;         + Eliminated MIDI message buffering
+;         + Fixed note delta corruption
+;         -- Info: Timer2 ISR was corrupting TLBPTR & TABLAT
+;         -- Info: Fixed by pushing TBLPTRL, TBLPTRH, TBLPTRU and TABLAT to soft stack at Timer2 ISR entrance
+;         + Fixed dropped MIDI messages
+;         -- Info: was failing to clear midiState_rxInProgress flag after processing received message
+;         + Downgraded UART ISR to low priority
+;         + Fixed sample record cancel on keypress that was broken by switching UART ISR to low priority
+;         + Fixed bad sample recording
+;         -- Info: issue appears to be related to using 'movff' instruction in EEPROM buffer write function
+;         -- Info: fixed by not using 'movff'
+;         + Added improved error checking to UART RX routine
+;         + Cleaned up Timer2 sound generation ISR
+;         + Cleaned up and consolidated EEPROM routines
+;         + Fixed always soundOn & sample loop_forever mode
+;         -- Info: needed to skip getActiveNoteDeltas during turnSoundOff condition
+;         + Fixed bad note parity when switching between Sine/Square and Sample
+;         -- Info: needed to refresh activeNoteDeltas when switching modes
+;         -- added __DEBUG macro wait for SSPIF for EEPROM debugging
+;         + Fixed sample playback c4 not same rate as record
+;         -- Info: EEPROM write request transaction was taking way too long to happen in ISR
+;         -- Info: was taking around 630uS to complete when ISR is supposed to re-enter every 63uS
+;         -- Info: EEPROM write and read now happen in mainline code
+;         -- Info: be aware that ISR is written to sampleDataBuffer as mainline is reading it and sending to EEPROM
+;         -- Info: mainline is ahead of ISR though so there's no conflict
+;         + Increased internal clock speed from 16Mhz to 32Mhz using 4x PLL & 8Mhz internal osc
+;         + Added wavePrescaleCounter to divide wave plaback rate by 2. Timer2 does not have /2 config option
+;         + Fixed MIDI Panic message processing. Now directly clears activeNoteTable[] and calls initSoundGen() for state reset
+;         + Added Program Change controls waveform mode
+;         + Replaced huge chunk of processSoundState playback code with single oscillator macros
+;         -- Info: This has increased speed of processSoundState() to ~30uS in poly mode
+;         -- Info: This also appears to have fixed hanging MIDI notes during keyboard mash. Yay for UART service time increases!
+;         + Added polyphony for all waveShapes including Sample
+;         + Changed Timer2 PR from 254 to 255 and replaced Delta tables
+;         + Got rid of waveTableIndexes
+;         + Got rid of useless version of output mixed code and their #defines
+;         + in getActiveNoteDeltas(), encapsulated zeroDelta as critical
+;         + Mostly fixed Sine/Square popping
+;         -- Info: changed SQUARE wave table to start with 0x00 and end with 0xff
+;         -- Info: changed mixer to always mix all four oscillators and /4, if SAMPLE then /2. This also balanced Poly volume
+;         + Changed ADC clock to within acceptable TAD
+;         + Panic now calls initMIDI() and initSoundGen()
+;         + Simified LED routine.  Now all waveShape mods have 3 modeLevels, POLY/MONO/SUSTAIN
+;         + Improved SAMPLE playback balance. If sample is loud then 4th osc will cause output to distort but this is ok
+;         + Add Sustain as mode level 1. Monophonic moved to level 2.  Can use button or MIDI Sustain message to control
+;         + Did some processSoundState() optimization to fix hanging MIDI notes
+;         + Added modulation support for sine/square modes
+;         + Made pitch wheel function more usable
+;         + Modulation value >63 now reversed sample playback
+;         + Sustain now locks pitch wheel and modulation values
+;         + Pitch wheel down in sample mode cuts sample off and restarts on release
+;         + Made waveform & mode change standalone functions that are called by button isrs
+;         + Added conditional LED code for through hole PCB design and reverse polarity
+;         + Prog Change and Sustain MIDI now calls waveform and mode change functions
+;         + Forgot to add many updates to this file :(
+;         + Resuming…
+;         + 20110601: mootLoaderTx write program memory function now starts from offset USER_CODE_START_ADDRESS to avoid
+;         -- corrupting jump to mootLoader on reset
+;         + 20110601: mootLoaderRx now repeats all received bytes to MIDI out for device chaining
+;
+; DateCode: 20110128
+; Details:
+;         - First submit to GitHub
+;         - Functioning Sine, Square and single Sample playback.

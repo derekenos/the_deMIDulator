@@ -1,0 +1,286 @@
+
+;**********************************************************************
+;                                                                     *
+;    Project:       deMIDulator                                       *
+;    Filename:	    noteDeltaTables.inc                               *
+;    Date:                                                            *
+;    File Version:                                                    *
+;                                                                     *
+;    Author:        Derek Enos                                        *
+;    Company:                                                         *
+;                                                                     * 
+;                                                                     *
+;**********************************************************************
+;                                                                     *
+;    Files required:                                                  *
+;                                                                     *
+;                                                                     *
+;                                                                     *
+;**********************************************************************
+
+; **** MIDI Note Delta Tables ****
+;
+; These tables define the "activeNoteDelta" values for all possible
+; MIDI notes, 0 - 127 (in that order).  Defining sample values
+; separately to save cycles 
+
+midiNoteDeltaTable
+	dw	34
+	dw	36
+	dw	38
+	dw	41
+	dw	43
+	dw	46
+	dw	48
+	dw	51
+	dw	54
+	dw	58
+	dw	61
+	dw	65
+	dw	69
+	dw	73
+	dw	77
+	dw	82
+	dw	86
+	dw	92
+	dw	97
+	dw	103
+	dw	109
+	dw	115
+	dw	122
+	dw	129
+	dw	137
+	dw	145
+	dw	154
+	dw	163
+	dw	173
+	dw	183
+	dw	194
+	dw	206
+	dw	218
+	dw	231
+	dw	244
+	dw	259
+	dw	274
+	dw	291
+	dw	308
+	dw	326
+	dw	346
+	dw	366
+	dw	388
+	dw	411
+	dw	435
+	dw	461
+	dw	489
+	dw	518
+	dw	549
+	dw	581
+	dw	616
+	dw	652
+	dw	691
+	dw	732
+	dw	776
+	dw	822
+	dw	871
+	dw	923
+	dw	978
+	dw	1036
+	dw	1097
+	dw	1163
+	dw	1232
+	dw	1305
+	dw	1383
+	dw	1465
+	dw	1552
+	dw	1644
+	dw	1742
+	dw	1845
+	dw	1955
+	dw	2071
+	dw	2195
+	dw	2325
+	dw	2463
+	dw	2610
+	dw	2765
+	dw	2930
+	dw	3104
+	dw	3288
+	dw	3484
+	dw	3691
+	dw	3910
+	dw	4143
+	dw	4389
+	dw	4650
+	dw	4927
+	dw	5220
+	dw	5530
+	dw	5859
+	dw	6207
+	dw	6577
+	dw	6968
+	dw	7382
+	dw	7821
+	dw	8286
+	dw	8779
+	dw	9301
+	dw	9854
+	dw	10440
+	dw	11060
+	dw	11718
+	dw	12415
+	dw	13153
+	dw	13935
+	dw	14764
+	dw	15642
+	dw	16572
+	dw	17557
+	dw	18601
+	dw	19708
+	dw	20879
+	dw	22121
+	dw	23436
+	dw	24830
+	dw	26306
+	dw	27871
+	dw	29528
+	dw	31284
+	dw	33144
+	dw	35115
+	dw	37203
+	dw	39415
+	dw	41759
+	dw	44242
+	dw	46873
+	dw	49660
+	dw	52613
+
+sampleMidiNoteDeltaTable
+	dw	8
+	dw	8
+	dw	9
+	dw	10
+	dw	10
+	dw	11
+	dw	11
+	dw	12
+	dw	13
+	dw	13
+	dw	14
+	dw	15
+	dw	16
+	dw	17
+	dw	18
+	dw	19
+	dw	20
+	dw	21
+	dw	23
+	dw	24
+	dw	25
+	dw	27
+	dw	29
+	dw	30
+	dw	32
+	dw	34
+	dw	36
+	dw	38
+	dw	40
+	dw	43
+	dw	45
+	dw	48
+	dw	51
+	dw	54
+	dw	57
+	dw	60
+	dw	64
+	dw	68
+	dw	72
+	dw	76
+	dw	81
+	dw	85
+	dw	91
+	dw	96
+	dw	102
+	dw	108
+	dw	114
+	dw	121
+	dw	128
+	dw	136
+	dw	144
+	dw	152
+	dw	161
+	dw	171
+	dw	181
+	dw	192
+	dw	203
+	dw	215
+	dw	228
+	dw	242
+	dw	256
+	dw	271
+	dw	287
+	dw	304
+	dw	323
+	dw	342
+	dw	362
+	dw	384
+	dw	406
+	dw	431
+	dw	456
+	dw	483
+	dw	512
+	dw	542
+	dw	575
+	dw	609
+	dw	645
+	dw	683
+	dw	724
+	dw	767
+	dw	813
+	dw	861
+	dw	912
+	dw	967
+	dw	1024
+	dw	1085
+	dw	1149
+	dw	1218
+	dw	1290
+	dw	1367
+	dw	1448
+	dw	1534
+	dw	1625
+	dw	1722
+	dw	1825
+	dw	1933
+	dw	2048
+	dw	2170
+	dw	2299
+	dw	2435
+	dw	2580
+	dw	2734
+	dw	2896
+	dw	3069
+	dw	3251
+	dw	3444
+	dw	3649
+	dw	3866
+	dw	4096
+	dw	4340
+	dw	4598
+	dw	4871
+	dw	5161
+	dw	5468
+	dw	5793
+	dw	6137
+	dw	6502
+	dw	6889
+	dw	7298
+	dw	7732
+	dw	8192
+	dw	8679
+	dw	9195
+	dw	9742
+	dw	10321
+	dw	10935
+	dw	11585
+	dw	12274
+	
