@@ -1,4 +1,4 @@
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE  1
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00049 
                       00050         #include        <p18lf13k50.inc>                        ; processor specific variable definition
                             s
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE  2
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00039 ;     USBDIV = OFF         USB Clock comes directly from the OSC1/OSC2 oscillator block; no divide
                       00040 ;     USBDIV = ON          USB clock comes from the OSC1/OSC2 divided by 2
                       00041         CONFIG USBDIV = OFF
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE  3
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -175,7 +175,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00092 ;     BOREN = OFF          Brown-out Reset disabled in hardware and software
                       00093 ;     BOREN = ON           Brown-out Reset enabled and controlled by software (SBOREN is enabled)
                       00094 ;     BOREN = NOSLP        Brown-out Reset enabled in hardware only and disabled in Sleep mode (SBOREN i
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE  4
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -234,7 +234,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00143 
                       00144 ;
                       00145 ;   Stack Full/Underflow Reset Enable bit:
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE  5
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE  5
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -293,7 +293,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00196         CONFIG WRT0 = OFF
                       00197         
                       00198 ;
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE  6
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE  6
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -352,7 +352,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00003 ;                                                                     *
                       00004 ;    Project:       deMIDulator                                       *
                       00005 ;    Filename:      eeprom.h                                          *
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE  7
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE  7
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -411,7 +411,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00056         bsf             LATC, RC6, ACCESS       ; Chip select is idle
                       00057         ENDM
                       00058 
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE  8
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE  8
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -470,7 +470,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00109         bsf             EECON1, EEPGD, ACCESS
                       00110 
                       00111         ENDM
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE  9
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE  9
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -529,7 +529,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00162 ;       movf    SSPBUF, w, ACCESS
                       00163 ;
                       00164 ;       ; SSPBUF = value
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 10
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 10
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -588,7 +588,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00008 ;                                                                     *
                       00009 ;    Author:        Derek Enos                                        *
                       00010 ;    Company:                                                         *
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 11
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 11
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -647,7 +647,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00061 ;----------------------------
                       00062 #define         NON_REAL_TIME                                           0x7E
                       00063 #define         GENERAL_INFORMATION                                     0x06
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 12
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 12
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -706,7 +706,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00114 #define         EFFECT_CONTROL_2_LSB                            45
                       00115 #define         UNDEFINED_046                                           46
                       00116 #define         UNDEFINED_047                                           47
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 13
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 13
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -765,7 +765,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00166 #define         DATA_DECREMENT                                                                  97
                       00167 #define         NON_REG_PARAMETER_NUMBER_LSB                            98
                       00168 #define         NON_REG_PARAMETER_NUMBER_MSB                            99
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 14
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 14
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -824,7 +824,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00219 
                       00220 
                       00221 #endif
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 15
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 15
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -883,7 +883,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00008 ;                                                                     *
                       00009 ;    Author:        Derek Enos                                        *
                       00010 ;    Company:                                                         *
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 16
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 16
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -942,7 +942,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00061 ; 19.52mS gives a max individual attack/release time of 4.99712 Seconds
                       00062 ; the "increment" value is set by adsrAttackRate and adsrReleaseRate
                       00063 #define ADSR_PRESCALE 610
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 17
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 17
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1001,7 +1001,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00114 ;**********************************************************************
                       00115 ; MACROS
                       00116 ;**********************************************************************
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 18
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 18
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1060,7 +1060,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00167         movlw   63
                       00168         cpfsgt  modulation, ACCESS
                       00169         bra             exitMacro
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 19
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 19
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1119,7 +1119,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00220         ; if adsrReleaseRate == 64 (correlating to midiReleaseTime value of 0) then ignore adsr
                       00221         movlw   64
                       00222         xorwf   adsrReleaseRate, w, ACCESS
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 20
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 20
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1178,7 +1178,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00273         ; load fsr
                       00274         lfsr    FSR0, adsrFlags
                       00275         ; read the register into WREG
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 21
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 21
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1237,7 +1237,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00326         PUSH_R  FSR0L
                       00327         PUSH_R  FSR0H
                       00328         
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 22
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 22
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1296,7 +1296,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00377 
                       00378         ; delegator is idle and oscillator is enabled so copy delegated delta as internal
                       00379         movff   delegatedDeltas + (OSC_NUMBER * DELEGATED_DELTAS_ELEMENT_SIZE) + 0, oscDeltas + (OSC_NUM
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 23
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 23
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1355,7 +1355,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                             + 1, f
                       00416         movf    pitchWheel                                                                              
                                                                             + 2, w, ACCESS
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 24
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 24
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1414,7 +1414,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00459         clrf    accumulators            + (OSC_NUMBER * ACCUMULATORS_ELEMENT_SIZE)                      
                             + 0
                       00460         clrf    accumulators            + (OSC_NUMBER * ACCUMULATORS_ELEMENT_SIZE)                      
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 25
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 25
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1473,7 +1473,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00505         movf    squareTableBaseAddress + 2, w
                       00506         btfsc   STATUS, C, ACCESS
                       00507         addlw   1
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 26
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 26
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1532,7 +1532,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00023 
                       00024 #define LEVEL_POLY_LED_BLINK_RATE               0
                       00025 #define LEVEL_SUSTAIN_LED_BLINK_RATE    2
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 27
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 27
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1591,7 +1591,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00076 LED_SAMPLE_OFF  MACRO
                       00077 #ifndef LED_POLARITY_REVERSED
                       00078         bsf             ledOnOffFlags, RC3, ACCESS      ; LED is off
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 28
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 28
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1650,7 +1650,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00129 
                       00130 LED_SQUARE_OFF  MACRO
                       00131 #ifndef LED_POLARITY_REVERSED
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 29
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 29
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1709,7 +1709,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00182         bcf             ledOnOffFlags, RA5, ACCESS      ; SAMPLE LED
                       00183 #else
                       00184         bsf             ledOnOffFlags, RA5, ACCESS      ; SAMPLE LED
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 30
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 30
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1768,7 +1768,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00235 #ifndef LED_POLARITY_REVERSED
                       00236         bcf             LATC, RC4, ACCESS       ; SQUARE LED
                       00237 #else
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 31
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 31
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1827,7 +1827,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00288 #endif  ; #ifndef THROUGH_HOLE_PCB
                       00289 
                       00290 LED_SINE_TOGGLE_OTHERS_OFF      MACRO
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 32
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 32
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1886,7 +1886,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00341         LED_SAMPLE_ON
                       00342         ENDM
                       00343 
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 33
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 33
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1945,7 +1945,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00107 ; 0x0048: goto lowPriorityISR   ; jump to lowPriorityISR()
                       00108 ;
                       00109 ; When writing new firmware, the user is responsible for maintaing these 
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 34
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 34
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2004,7 +2004,7 @@ Warning[208]: Label truncated at 32 characters. (lastApplicationProgramMemoryAdd
                       00008 ;    Author:        Derek Enos                                        *
                       00009 ;    Company:                                                         *
                       00010 ;                                                                     * 
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 35
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 35
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2063,7 +2063,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00060 
                       00061 SEND_SYSEX_INTRO_NO_CHECK       MACRO
                       00062         movlw   0xF0
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 36
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 36
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2122,7 +2122,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00113 IDLE_WRITE_WAIT                         MACRO
                       00114         movlw   ML_WRITE_IDLE_TIME_MS
                       00115         call    mootLoader_wait
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 37
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 37
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2181,7 +2181,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   0000003D            00066                 mlTransitionCount:1
                       00067                 ; rxDecodeReceivedSymbol()
   0000003E            00068                 mlDecodedNybble:1
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 38
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 38
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2240,7 +2240,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00101         ; check if boot action is being requested
                       00102         ; enter mootLoader Trasmitter mode if waveform(RC0) & record(RC1) switches held for 2 second
                       00103         ; enter mootLoader Receiver mode if record(RC1) & mode(RC2) switches held for 2 second
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 39
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 39
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2299,7 +2299,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 001844 6200           00152         cpfseq  mlButtonState, ACCESS
 001846 D???           00153         bra             mootLoader_checkRestore
 001848 D???           00154         bra             mootLoader_receiver
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 40
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 40
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2358,7 +2358,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 00186E EC?? F???      00040         call mootLoader_initCCP
 001872 EC?? F???      00041         call mootLoader_initSPI
 001876 EC?? F???      00042         call mootLoader_initADC
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 41
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 41
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2417,7 +2417,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00093         ; 13    RB4             EEPROM Slave Out
                       00094         ; 14    RC2             Switch (MIDI Record / Playback)
                       00095         ; 15    RC1             Switch (Voice Through / Record)
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 42
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 42
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2476,7 +2476,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00139         
 0018A4 868B           00140         bsf             LATC, RC3, ACCESS       ; LED is off
 0018A6 888B           00141         bsf             LATC, RC4, ACCESS       ; LED is off
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 43
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 43
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2535,7 +2535,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00192 ;**********************************************************************
                       00193 
 0018D2                00194 mootLoader_initTimer1
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 44
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 44
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2594,7 +2594,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00245 ;**********************************************************************
                       00246 ; Function: void mootLoader_initADC()
                       00247 ;**********************************************************************
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 45
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 45
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2653,7 +2653,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00298         ; enable INT1 interrupts
                       00299         ; clear INT2 int flag
                       00300         ; clear INT1 int flag
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 46
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 46
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2712,7 +2712,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00351 
                       00352         ; reset fsr address
 00193A 6AE9           00353         clrf    FSR0L, ACCESS   
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 47
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 47
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2771,7 +2771,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00137 ;                                                                     *
                       00138 ;**********************************************************************
                       00139 
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 48
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 48
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2830,7 +2830,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00189 
                       00190 SEND_BYTE_START_CHECKSUM        MACRO
                       00191         movwf   mlChecksum, ACCESS
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 49
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 49
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2889,7 +2889,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00022         
                       00023 ;**********************************************************************
                       00024 ; LOCAL VARIABLES
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 50
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 50
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2948,7 +2948,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00067         ; if mlPayloadLength is not 64-byte aligned then align it
 00196A 0E3F           00068         movlw   0x3f
 00196C 1407           00069         andwf   mlPayloadLength + 0, w, ACCESS
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 51
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 51
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3007,7 +3007,7 @@ Warning[208]: Label truncated at 32 characters. (mootLoader_xmitWriteProgramMemo
                       00115         ; send single Data Payload packet
                       00116         ; load mlDataPayloadBuffer with bytes to send
 0019AA EE00 F00B      00117         lfsr    FSR0, mlDataPayloadBuffer
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 52
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 52
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3066,7 +3066,7 @@ Warning[208]: Label truncated at 32 characters. (mootLoader_xmitWpmCheckBlockEra
 Warning[208]: Label truncated at 32 characters. (mootLoader_xmitWpmSendPayloadComplete)
 0019EC                00165 mootLoader_xmitWpmSendPayloadComplete
                       00166         ; mlPayloadLength == 0 so send Data Payload Complete packet
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 53
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 53
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3125,7 +3125,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 001A28 EC?? F???          M         call    mootLoader_sendAsNybbles
 001A2C 5006           00202         movf    mlStartAddress + 3, w, ACCESS
                       00203         SPLIT_BYTE_THEN_SEND_DO_CHECKSUM
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 54
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 54
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3184,7 +3184,7 @@ Warning[208]: Label truncated at 32 characters. (mootLoader_xmitSendDataPayloadP
 001A66 CFE9 FFDD          M         movff   FSR0L,   softwareStackPointerPOSTDEC    ; softwareStackPointerINDF-- = regName
                       00238         PUSH_R  FSR0H
 001A6A CFEA FFDD          M         movff   FSR0H,   softwareStackPointerPOSTDEC    ; softwareStackPointerINDF-- = regName
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 55
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 55
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3243,7 +3243,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 001AA8 0EF7           00274         movlw   0xF7
 001AAA EC?? F???      00275         call    mootLoader_sendByte
                       00276         ;****************************************
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 56
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 56
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3302,7 +3302,7 @@ Warning[208]: Label truncated at 32 characters. (mootLoader_xmitSendDataPayloadC
 001AF4 1A01               M         xorwf   mlChecksum, f, ACCESS
 001AF6 EC?? F???          M         call    mootLoader_sendAsNybbles
 001AFA 0E00           00308         movlw   0x00
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 57
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 57
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3361,7 +3361,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 001B3A 0012           00349         return
                       00350 
                       00351 
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 58
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 58
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3420,7 +3420,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00014 
                       00015 
                       00016 ;**********************************************************************
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 59
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 59
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3479,7 +3479,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00286 ; ******************* MOOTLOADER PACKET DEFINES ***********************
                       00287 
                       00288 #define ML_LARGE_PACKET_BYTE_SIZE               22
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 60
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 60
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3538,7 +3538,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00339         ENDM
                       00340 
                       00341 SEND_RUNNING_CHECKSUM           MACRO
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 61
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 61
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3597,7 +3597,7 @@ Warning[208]: Label truncated at 32 characters. (mootLoader_receiverListenForTra
 001B6C 181E           00045         xorwf   mlRxReceivedPacket + 3, w, ACCESS
 001B6E EF?? F???      00046         goto    mootLoader_rxReceiverResetHandler
                       00047         ; unhandled command so listen for next trans sync
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 62
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 62
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3656,7 +3656,7 @@ Warning[208]: Label truncated at 32 characters. (mootLoader_rxWriteProgramMemory
                       00097         ; get next packet
 001BC0                00098 mootLoader_rxWpmhGetNextPacket
 001BC0 EC?? F???      00099         call    mootLoader_rxReceiveNextPacket
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 63
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 63
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3715,7 +3715,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 001C12 84A6           00144         bsf             EECON1, WREN, ACCESS
                       00145         ; do require sequence
 001C14 0E55           00146         movlw   0x55
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 64
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 64
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3774,7 +3774,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 001C3A D???           00183         bra             mootLoader_signalErrorALp2
 001C3C 0613           00184         decf    mlCount, f, ACCESS
 001C3E B4D8           00185         btfsc   STATUS, Z, ACCESS
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 65
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 65
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3833,7 +3833,7 @@ Warning[208]: Label truncated at 32 characters. (mootLoader_SebWriteReceivedPack
 001C6C 2A3F           00200         incf    mlEepromAddress, f, ACCESS
 001C6E 0E16           00201         movlw   ML_LARGE_PACKET_BYTE_SIZE
 001C70 623F           00202         cpfseq  mlEepromAddress, ACCESS
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 66
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 66
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3892,7 +3892,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                           M #endif
                           M         LED_SAMPLE_TOGGLE
 001C94 7A89               M         btg             LATA, RA5, ACCESS       ; SAMPLE LED
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 67
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 67
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3951,7 +3951,7 @@ Warning[208]: Label truncated at 32 characters. (mootloader_rxTestSinglePacketCh
                       00276         ; if result is 0 then checksum if NOT ok so skip
 001CCA B4D8           00277         btfsc   STATUS, Z, ACCESS
 001CCC 8215           00278         bsf             mlFlags, mlRxChecksumOk, ACCESS
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 68
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 68
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -4010,7 +4010,7 @@ Warning[208]: Label truncated at 32 characters. (mootLoader_rxRnpPayloadDe_nybbl
                       00325         ; save complete value in low nybble location and postinc to high nybble
 001D0A 6EEE           00326         movwf   POSTINC0, ACCESS
                       00327         ; save complete value in high nybble location and postinc to next low nybble
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 69
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 69
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -4069,7 +4069,7 @@ Warning[208]: Label truncated at 32 characters. (mootLoader_rxReceiveNextByteRea
                       00170         
                       00132 
                       00133         END
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 70
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 70
 
 
 SYMBOL TABLE
@@ -4128,7 +4128,7 @@ AN11                              00000005
 AN3                               00000004
 AN4                               00000000
 AN5                               00000001
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 71
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 71
 
 
 SYMBOL TABLE
@@ -4187,7 +4187,7 @@ C1OE                              00000005
 C1ON                              00000007
 C1OUT                             00000006
 C1POL                             00000004
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 72
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 72
 
 
 SYMBOL TABLE
@@ -4246,7 +4246,7 @@ CM2CON1                           00000F6C
 CONFIG_INC                        
 CONTROL_CHANGE                    0xB0
 CONTROL_CHANGE_COMPLETE           DATA_BYTE1
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 73
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 73
 
 
 SYMBOL TABLE
@@ -4305,7 +4305,7 @@ ECCPAS2                           00000006
 ECCPASE                           00000007
 EEADR                             00000FA9
 EEADR0                            00000000
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 74
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 74
 
 
 SYMBOL TABLE
@@ -4364,7 +4364,7 @@ FREE                              00000004
 FRM0                              00000000
 FRM1                              00000001
 FRM10                             00000002
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 75
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 75
 
 
 SYMBOL TABLE
@@ -4423,7 +4423,7 @@ IDLEN                             00000007
 IDLE_BLOCK_ERASE                  
 IDLE_WRITE_WAIT                   
 INDF0                             00000FEF
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 76
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 76
 
 
 SYMBOL TABLE
@@ -4482,7 +4482,7 @@ LATA4                             00000004
 LATA5                             00000005
 LATB                              00000F8A
 LATB4                             00000004
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 77
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 77
 
 
 SYMBOL TABLE
@@ -4541,7 +4541,7 @@ ML_COMMAND_DATA_PAYLOAD           0x01
 ML_COMMAND_DATA_PAYLOAD_COMPLETE  0x02
 ML_COMMAND_WRITE_PROGRAM_MEMORY   0x03
 ML_DATA_PACKET_PAYLOAD_BYTE_SIZE  8
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 78
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 78
 
 
 SYMBOL TABLE
@@ -4600,7 +4600,7 @@ OSCFIE                            00000007
 OSCFIF                            00000007
 OSCFIP                            00000007
 OSCTUNE                           00000F9B
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 79
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 79
 
 
 SYMBOL TABLE
@@ -4659,7 +4659,7 @@ PLUSW2                            00000FDB
 POLY                              0
 POLY_MODE_OFF                     126
 POLY_MODE_ON                      127
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 80
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 80
 
 
 SYMBOL TABLE
@@ -4718,7 +4718,7 @@ RABIP                             00000000
 RABPU                             00000007
 RB4                               00000004
 RB5                               00000005
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 81
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 81
 
 
 SYMBOL TABLE
@@ -4777,7 +4777,7 @@ SE0                               00000005
 SEN                               00000000
 SENDB                             00000003
 SEND_BYTE_DO_CHECKSUM             
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 82
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 82
 
 
 SYMBOL TABLE
@@ -4836,7 +4836,7 @@ SRRC1E                            00000000
 SRRC2E                            00000001
 SRRCKE                            00000002
 SRRPE                             00000003
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 83
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 83
 
 
 SYMBOL TABLE
@@ -4895,7 +4895,7 @@ T13CKI                            00000006
 T1CKPS0                           00000004
 T1CKPS1                           00000005
 T1CON                             00000FCD
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 84
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 84
 
 
 SYMBOL TABLE
@@ -4954,7 +4954,7 @@ TO                                00000003
 TOS                               00000FFD
 TOSH                              00000FFE
 TOSL                              00000FFD
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 85
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 85
 
 
 SYMBOL TABLE
@@ -5013,7 +5013,7 @@ UEP7                              00000F5A
 UERRIE                            00000001
 UERRIF                            00000001
 UFRMH                             00000F5E
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 86
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 86
 
 
 SYMBOL TABLE
@@ -5072,7 +5072,7 @@ UNDEFINED_117                     117
 UNDEFINED_118                     118
 UNDEFINED_119                     119
 UNDEFINED_85                      85
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 87
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 87
 
 
 SYMBOL TABLE
@@ -5131,7 +5131,7 @@ _BOREN_SBORDIS_2L                 000000FF
 _BORV_19_2L                       000000FF
 _BORV_22_2L                       000000F7
 _BORV_27_2L                       000000EF
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 88
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 88
 
 
 SYMBOL TABLE
@@ -5190,7 +5190,7 @@ _FOSC_LP_1H                       000000F0
 _FOSC_XT_1H                       000000F1
 _HFOFST_OFF_3H                    000000F7
 _HFOFST_ON_3H                     000000FF
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 89
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 89
 
 
 SYMBOL TABLE
@@ -5249,7 +5249,7 @@ _WRT1_ON_6L                       000000FD
 _WRTB_OFF_6H                      000000FF
 _WRTB_ON_6H                       000000BF
 _WRTC_OFF_6H                      000000FF
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 90
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 90
 
 
 SYMBOL TABLE
@@ -5308,7 +5308,7 @@ mlSymbolBucketCount               00000038
 mlTransitionCount                 0000003D
 mootLoader                        00001800
 mootLoader_SebWriteReceivedPacke  00001C4C
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 91
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 91
 
 
 SYMBOL TABLE
@@ -5367,7 +5367,7 @@ mootLoader_stateWaitLp            0000181E
 mootLoader_stateWaitOvLp          00001828
 mootLoader_transmitter            00001946
 mootLoader_wait                   00001B3C
-MPASM  5.42                ../SOURCE/MAIN.ASM   9-7-2011  18:29:35         PAGE 92
+MPASM  5.42                ../SOURCE/MAIN.ASM   9-12-2011  16:17:27         PAGE 92
 
 
 SYMBOL TABLE
