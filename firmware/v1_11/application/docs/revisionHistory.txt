@@ -1,0 +1,34 @@
+;
+; deMIDulator: digital audio synthesizer & lo-fi audio sampler
+;
+; [Revision History]
+;
+;  * In Progress *
+;
+;  * Pending *
+;    + Figure out full port to PIC18LF14K22
+;    + Improve MIDI servicing
+;    + initRAM() and mootLoader_initRAM() require modification to wipe all memory locations for PIC18LF14K22
+;
+;  * Waived Bugs / Issues *
+;    + when enabling sustain mode with active notes in a wave mode (sine/square) and then switching
+;      to sample, or vice versa, notes are not correct.  This is because sustained oscillators are
+;      not currently updatable
+;
+;
+; Version: 1.11
+;  * Changes since v1.10 *
+;    + REFACTOR: changed default Attack/Release rate values to max (immediate attack/release)
+;    + REFACTOR: reverted to responding to all channels when midi channel 7 is selected (default)
+;    + FEATURE: Added ability to save current attack/release values to EEPROM as power-up condition
+;    -- In Sine or Square mode, press and hold Record button then press Mode button. Values are immediately written to EEPROM
+;    + REFACTOR: squeezed bootloader into 512 words (1024 bytes)
+;    -- removed unnecessary peripheral init routines
+;    -- consolidated signalError A/B/C to A and changed indicator LED from Sine to Square
+;    -- where possible, changed all CALL to RCALL, all GOTO to BRA
+;    -- consolidated mootLoader_initCore() into single long function, eliminating call/return pairs to save space
+;    -- pushed PIC18LF13K50 bootloader to last 512W starting at 0x1C00, yes!
+;    -- bootloader tested ok
+;    + FEATURE: Added MIDI channel select feature. Hold Waveform Select button on power-up. Record button cycles through midi channels
+;      1 - 7 (values 0 - 6), Mode button writes the value to on-board EEPROM and performs software reset
+;

@@ -1,0 +1,21 @@
+;
+; deMIDulator: digital audio synthesizer & lo-fi audio sampler
+;
+; [Revision History]
+;
+;  * In Progress *
+;
+;  * Pending *
+;
+;  * Waived Bugs / Issues *
+;
+; Bootloader Version: 1.11
+;  * Changes since v1.10 *
+;    + REFACTOR: squeezed bootloader into 512 words (1024 bytes)
+;    -- removed unnecessary peripheral init routines
+;    -- consolidated signalError A/B/C to A and changed indicator LED from Sine to Square
+;    -- where possible, changed all CALL to RCALL, all GOTO to BRA
+;    -- consolidated mootLoader_initCore() into single long function, eliminating call/return pairs to save space
+;    -- pushed PIC18LF13K50 bootloader to last 512W starting at 0x1C00, yes!
+;    -- bootloader tested ok
+;
